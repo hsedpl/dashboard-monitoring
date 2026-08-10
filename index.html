@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoring Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <button id="menuButton" class="menu-btn">
+            ☰
+        </button>
+
+        <div class="title">
+            <h2>Monitoring Dashboard</h2>
+            <p>Realtime Monitoring System</p>
+        </div>
+
+        <div class="status-area">
+
+            <span id="mqttStatus" class="status online">
+                🟢 Connected
+            </span>
+
+            <span id="lastUpdate">
+                Last Update : --
+            </span>
+
+        </div>
+
+    </header>
+
+    <!-- ================= LAYOUT ================= -->
+
+    <div class="layout">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside id="sidebar" class="sidebar">
+
+            <div class="logo">
+                <h2>HSE</h2>
+            </div>
+
+            <nav>
+
+                <a href="#" id="menuDashboard" class="active">
+                    📊 Dashboard
+                </a>
+
+                <a href="#" id="menuIPAL">
+                    🏭 IPAL
+                </a>
+
+            </nav>
+
+        </aside>
+
+        <!-- ================= CONTENT ================= -->
+
+        <main class="content">
+
+            <!-- ===================================================== -->
+            <!-- DASHBOARD -->
+            <!-- ===================================================== -->
+
+            <section id="dashboardPage" class="page active">
+
+                <section class="cards">
+
+                    <div class="card">
+
+                        <h3>Pressure</h3>
+
+                        <div class="value">
+                            <span id="pressure">0.00</span>
+                            <small>Bar</small>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Wind Speed</h3>
+
+                        <div class="value">
+                            <span id="wind">0.00</span>
+                            <small>Knot</small>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="charts">
+
+                    <div class="chart-card">
+
+                        <h3>Pressure</h3>
+
+                        <canvas id="pressureChart"></canvas>
+
+                    </div>
+
+                    <div class="chart-card">
+
+                        <h3>Wind Speed</h3>
+
+                        <canvas id="windChart"></canvas>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <!-- ===================================================== -->
+            <!-- IPAL -->
+            <!-- ===================================================== -->
+
+            <section id="ipalPage" class="page">
+
+                <section class="cards">
+
+                    <div class="card">
+
+                        <h3>Flow Inlet</h3>
+
+                        <div class="value">
+                            <span id="flowIn">0.000</span>
+                            <small>m³</small>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>Flow Outlet</h3>
+
+                        <div class="value">
+                            <span id="flowOut">0.000</span>
+                            <small>m³</small>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>pH Inlet</h3>
+
+                        <div class="value">
+                            <span id="phIn">0.00</span>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+
+                        <h3>pH Outlet</h3>
+
+                        <div class="value">
+                            <span id="phOut">0.00</span>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <section class="charts">
+
+                    <div class="chart-card">
+
+                        <h3>Flow</h3>
+
+                        <canvas id="flowChart"></canvas>
+
+                    </div>
+
+                    <div class="chart-card">
+
+                        <h3>pH</h3>
+
+                        <canvas id="phChart"></canvas>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
